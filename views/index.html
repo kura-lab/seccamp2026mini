@@ -1,0 +1,30 @@
+    <main class="content center">
+      <h2 class="md-typescale-display-small">
+        Welcome to world of OAuth 2.0 and OpenID Connect
+      </h2>
+      <p class="instructions">Launch Keycloak and choose OpenID Connect flow.</p>
+      <p>
+        <md-text-button onclick="location.href='/implicit/'">
+          <md-icon slot="icon">arrow_forward</md-icon>
+          Implicit Flow
+        </md-text-button>
+      </p>
+      <p>
+        <md-text-button onclick="location.href='/authz_code/'">
+          <md-icon slot="icon">arrow_forward</md-icon>
+          Authorization Code Flow
+        </md-text-button>
+      </p>
+      <p>
+        <md-text-button onclick="location.href='/pkce/'">
+          <md-icon slot="icon">arrow_forward</md-icon>
+          Authorization Code Flow with PKCE
+        </md-text-button>
+      </p>
+      <p>
+        <md-text-button onclick="location.href='/introspection/'">
+          <md-icon slot="icon">arrow_forward</md-icon>
+          Token Introspection
+        </md-text-button>
+      </p>
+    </main>

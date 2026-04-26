@@ -1,0 +1,57 @@
+    <main class="content center">
+      <h2 class="md-typescale-display-small">
+        OpenID Connect Implicit Flow Callback
+      </h2>
+      <script type="module">
+        const getHashParams = () => {
+        const hash = window.location.hash.substring(1);
+        return Object.fromEntries(new URLSearchParams(hash));
+      };
+      
+      const handleImplicitLogin = async () => {
+        const params = getHashParams();
+        const accessToken = params.access_token;
+        const displayElement = document.getElementById('sub-display');
+      
+        if (!accessToken) {
+          console.error('access_tokenが見つかりません');
+          return;
+        }
+      
+        try {
+          const response = await fetch('/implicit/login', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ access_token: accessToken }),
+          });
+      
+          if (!response.ok) throw new Error('ログイン処理に失敗しました');
+      
+          const data = await response.json();
+      
+          if (data && data.sub) {
+            displayElement.textContent = `Subject (sub): ${data.sub}`;
+          } else {
+            displayElement.textContent = 'subパラメーターが見つかりませんでした';
+          }
+      
+        } catch (error) {
+          console.error('Error:', error);
+          displayElement.textContent = 'エラーが発生しました';
+        }
+      };
+      
+      window.addEventListener('DOMContentLoaded', handleImplicitLogin);
+      </script>
+
+      <div class="result-container">
+        <p id="sub-display">読み込み中...</p>
+      </div>
+
+      <md-text-button onclick="location.href='/implicit/'">
+        <md-icon slot="icon">arrow_back</md-icon>
+        Back to Implicit page.
+      </md-text-button>
+    </main>

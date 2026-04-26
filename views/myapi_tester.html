@@ -1,0 +1,26 @@
+    <main class="content center">
+      <h2 class="md-typescale-display-small">
+        My API Tester
+      </h2>
+      <p class="instructions">Launch Keycloak and click to process Token Introspection.</p>
+      <form id="form" method="POST" action="/introspection/myapi_tester" class="center">
+        <md-outlined-text-field
+            id="access_token_field"
+            name="access_token"
+            label="Your Access Token"
+            placeholder="Your Access Token"
+            style="margin-bottom: 10px;">
+        </md-outlined-text-field>
+        <md-filled-button type="submit">Test</md-filled-button>
+      </form>
+
+      <div class="result-container">
+        <p>message: {{ message }}</p>
+        <p>time: {{ time }}</p>
+      </div>
+
+      <md-text-button onclick="location.href='/introspection'">
+        <md-icon slot="icon">arrow_back</md-icon>
+        Back to Token Intorospection page.
+      </md-text-button>
+    </main>

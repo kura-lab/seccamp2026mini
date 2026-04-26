@@ -1,0 +1,23 @@
+    <main class="content center">
+      <h2 class="md-typescale-display-small">
+        OAuth 2.0 Token Introspection Callback
+      </h2>
+
+      <div class="result-container">
+        <p>sub: {{ sub }}</p>
+        <p>access_token: {{ access_token }}</p>
+      </div>
+
+      <p>
+      <md-text-button onclick="location.href='/introspection/myapi_tester'">
+        <md-icon slot="icon">arrow_forward</md-icon>
+        Go to My API Tester.
+      </md-text-button>
+      </p>
+      <p>
+      <md-text-button onclick="location.href='/introspection/'">
+        <md-icon slot="icon">arrow_back</md-icon>
+        Back to Token Introspection page.
+      </md-text-button>
+      </p>
+    </main>
