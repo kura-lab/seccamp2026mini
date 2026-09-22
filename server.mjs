@@ -93,6 +93,14 @@ app.get('/', (req, res) => {
   });
 });
 
+/**
+ * TODO: OP・RPの設定
+ */
+
+/**
+ * TODO: OpenID Configurationの取得
+ */
+
 app.use('/implicit', implicit);
 app.use('/authz_code', authzCode);
 app.use('/pkce', pkce);
