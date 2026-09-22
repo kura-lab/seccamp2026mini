@@ -27,11 +27,8 @@ router.get('/', (req, res) => {
 });
 
 /**
- * TODO: クライアントの設定
+ * TODO: RPの設定
  */
-const SERVER = 'http://localhost:18080/realms/master';
-const CLIENT_ID = '';
-const CLIENT_SECRET = '';
 const REDIRECT_URI = 'http://localhost:8080/implicit/callback';
 
 router.get('/request-authorization', async (req, res) => {
@@ -39,7 +36,7 @@ router.get('/request-authorization', async (req, res) => {
   console.log('[[ implicit flow started ]]');
 
   /**
-   * TODO: OpenID Configurationの取得
+   * TODO: OPの設定取得
    */
 
 
@@ -61,7 +58,7 @@ router.get('/callback', (req, res) => {
 router.post('/login', async (req, res) => {
 
   /**
-   * TODO: OpenID Configurationの取得
+   * TODO: OPの設定取得
    */
 
 
